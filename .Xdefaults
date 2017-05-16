@@ -1,0 +1,4 @@
+xterm*background: black
+xterm*foreground: white
+XTerm*eightBitInput:   false
+XTerm*eightBitOutput:  true
