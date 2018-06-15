@@ -12,16 +12,20 @@
 (toggle-scroll-bar -1)
 (global-linum-mode 1)
 (setq column-number-mode t)
+(setq helm-mode-fuzzy-match t)
 (setq linum-format "%2d  ")
 (setq backup-directory-alist `(("." . "~/.saves")))
 (global-set-key (kbd "M-\\") 'company-complete)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-unset-key (kbd "M-F"))
+(global-set-key (kbd "M-F") 'fiplr-find-file)
 (add-hook 'haskell-mode-hook 'intero-mode)
 (add-to-list 'custom-theme-load-path "~/cieplak/zenburn-emacs")
 (load-theme 'zenburn t)
 (custom-set-variables
  '(inhibit-startup-screen t)
  '(load-home-init-file t t)
- '(package-selected-packages (quote (helm intero))))
+ '(package-selected-packages (quote (fiplr magit undo-tree helm intero))))
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
