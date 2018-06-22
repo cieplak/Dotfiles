@@ -1,9 +1,9 @@
+
 (require 'package)
 (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
                     (not (gnutls-available-p))))
        (proto (if no-ssl "http" "https")))
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
   (when (< emacs-major-version 24)
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
@@ -17,6 +17,7 @@
 (setq backup-directory-alist `(("." . "~/.saves")))
 (global-set-key (kbd "M-\\") 'company-complete)
 (global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-x b") #'helm-buffers-list)
 (global-unset-key (kbd "M-F"))
 (global-set-key (kbd "M-F") 'fiplr-find-file)
 (add-hook 'haskell-mode-hook 'intero-mode)
@@ -25,7 +26,9 @@
 (custom-set-variables
  '(inhibit-startup-screen t)
  '(load-home-init-file t t)
- '(package-selected-packages (quote (fiplr magit undo-tree helm intero))))
+ '(package-selected-packages
+   (quote
+    (diff-hl csv-mode fiplr magit undo-tree helm intero))))
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
