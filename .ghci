@@ -1,7 +1,9 @@
 :set prompt "\ESC[34mλ> \ESC[m"
 :set -XOverloadedStrings
-:set -XExtendedDefaultRules
 :set -XLambdaCase
+:set -XExtendedDefaultRules
 import Data.Monoid ((<>))
 import Control.Monad
-:module -Protolude
+import Protolude
+default (Text)
+:module -Prelude
