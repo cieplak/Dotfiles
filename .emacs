@@ -8,9 +8,20 @@
     (add-to-list 'package-archives '("gnu" . (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+(setq package-list '(intero markdown-mode hindent yaml-mode neotree treemacs projectile eproject diff-hl csv-mode fiplr magit undo-tree helm))
+
+; fetch the list of packages available
+(unless package-archive-contents
+  (package-refresh-contents))
+
+; install the missing packages
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(toggle-scroll-bar -1)
+
 (global-linum-mode 1)
 
 (setq column-number-mode t)
@@ -30,8 +41,8 @@
 (add-hook 'haskell-mode-hook 'intero-mode)
 (add-hook 'haskell-mode-hook 'diff-hl-mode)
 
-(add-to-list 'custom-theme-load-path "~/cieplak/zenburn-emacs")
-(load-theme 'zenburn t)
+;; (add-to-list 'custom-theme-load-path "~/cieplak/zenburn-emacs")
+;; (load-theme 'zenburn t)
 
 (custom-set-variables
  '(inhibit-startup-screen t)
@@ -42,6 +53,7 @@
  '(show-trailing-whitespace t))
 (if (display-graphic-p)
     (progn
+      (toggle-scroll-bar -1)
       (setq initial-frame-alist
             '(
               (width . 106)
