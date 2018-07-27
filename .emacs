@@ -31,6 +31,7 @@
 
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 2)
+(setq-default c-basic-offset 2) 
 
 (setq column-number-mode t)
 (setq helm-mode-fuzzy-match t)
