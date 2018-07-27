@@ -56,6 +56,11 @@
 ;; (add-to-list 'custom-theme-load-path "~/cieplak/zenburn-emacs")
 ;; (load-theme 'zenburn t)
 
+(setq whitespace-style '(face trailing tabs))
+(custom-set-faces
+ '(whitespace-tab ((t (:background "red")))))
+(global-whitespace-mode)
+
 (custom-set-variables
  '(inhibit-startup-screen t)
  '(load-home-init-file t t)
