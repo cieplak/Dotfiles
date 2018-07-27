@@ -29,6 +29,9 @@
 
 (global-company-mode)
 
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
 (setq column-number-mode t)
 (setq helm-mode-fuzzy-match t)
 (setq nlinum-format "%2d  ")
